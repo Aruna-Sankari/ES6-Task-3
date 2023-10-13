@@ -1,0 +1,35 @@
+<html>
+<head>
+<title>Employee Details</title>
+</head>
+<body>
+<script>
+class Employee {
+  constructor(name, salary) {
+    this.name = name;
+    this.salary = salary;
+  }
+calAnnualSalary() {
+    return this.salary * 12;
+  }
+}
+
+class Manager extends Employee {
+  constructor(name, salary, department) {
+    super(name, salary);
+    this.department = department;
+  }
+calAnnualSalary() {
+    const  salary = super.calAnnualSalary();
+    const managerBonus = 5000;
+    return salary + managerBonus;
+  }
+}
+
+const manager1 = new Manager("Subi", 50000, "Sales");
+const manager2 = new Manager("Kaviya", 75000, "Marketing");
+console.log(`${manager1.name}'s annual salary: $${manager1.calAnnualSalary()}`);
+console.log(`${manager2.name}'s annual salary: $${manager2.calAnnualSalary()}`);
+</script>
+</body>
+</html>

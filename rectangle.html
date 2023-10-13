@@ -1,0 +1,26 @@
+<html>
+<head>
+<title> rectangle</title>
+</head>
+<body>
+<script>
+class Rectangle{
+constructor(width,height){
+this.width=width;
+this.height=height;
+}
+rectArea(){
+return this.width*this.height;
+}
+rectPerimeter(){
+return 2* (this.width + this.height);
+}
+}
+let rect=new Rectangle(4,5);
+const area=rect.rectArea();
+const perimeter=rect.rectPerimeter();
+console.log(`The Area of a rectangle is:${area}`);
+console.log(`The Perimeter of a rectangle is:${perimeter}`);
+</script>
+</body>
+</html>

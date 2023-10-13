@@ -1,0 +1,37 @@
+<html>
+<head>
+<title>Book</title>
+</head>
+<body>
+<script>
+//parent class
+class Book{
+constructor(title,author,publicationYear){
+this.title=title;
+this.author=author;
+this.publicationYear=publicationYear;
+}
+bookDetails(){
+console.log(`Book Title:${this.title}`);
+console.log(`Author Name:${this.author}`);
+console.log(`Publication year:${this.publicationYear}`);
+}
+}
+
+// child class
+class Ebook extends Book{
+constructor(title,author,publicationYear,bookPrice){
+super(title,author,publicationYear);
+this.bookPrice=bookPrice;
+}
+bookDetails(){
+super.bookDetails();
+console.log(`Book Price:${this.bookPrice}`);
+}
+}
+
+const book1=new  Ebook("ponniyin selvan","kalki",1954,450);
+book1.bookDetails();
+</script>
+</body>
+</html>
