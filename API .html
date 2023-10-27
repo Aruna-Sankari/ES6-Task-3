@@ -1,0 +1,94 @@
+<html>
+<head>
+<title>API</title>
+<style>
+*{
+    padding: 0;
+    margin: 0%;
+    box-sizing: border-box;
+}
+section{
+    padding-top: 3%;
+}
+.container{
+    width:80%;
+    margin:auto;
+}
+.container h1{
+    text-align: center;
+	}
+.row{
+    display: flex;
+    flex-wrap: wrap;
+}
+.col{
+    width:33.3%;
+    padding: 20px;
+}
+.card{
+    box-shadow: 0 0 10px gray;
+    padding: 10px;
+}
+.list{
+    list-style-type: none;
+    padding:2% 0;
+}
+.list li{
+    padding: 2% 0;
+}
+img{
+    width:100%;
+    
+}
+.info{
+    padding: 10px;
+}
+</style>
+</head>
+<body>
+ <section>
+    <div class="container">
+        <h1>Cast members of the show</h1>
+        <div class="row">
+        </div>
+    </div>
+</section>
+<script>
+var row=document.querySelector(".row")
+function cast(){
+    fetch('https://api.tvmaze.com/shows/1/cast')
+        .then((msg)=>
+           msg.json())
+        .then((n)=>{
+            for(e of n){
+                creation(e)
+                console.log(e);
+            }
+        })
+        .catch((err)=>{
+            console.log("Error");
+        })
+        }
+cast()  
+
+const creation=(e)=>{
+    row.innerHTML+=`<div class="col">
+    <div class="card">
+        <div class="image">
+            <img src="${e.person.image.medium}" >
+        </div>
+        <div class="info">
+            <h1 class="title"> ${e.person.name}</h1>
+        </div>
+        <div>
+            <ul class="list">
+                <li>Gender :<span>${e.person.gender}</span></li>
+                <li>DOB :<span>${e.person.birthday}</span></li>
+            </ul>
+        </div>
+    </div>
+</div>`
+}
+</script>
+</body>
+</html>
